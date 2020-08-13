@@ -1,0 +1,1 @@
+create unique index IDX_TEST_CITY_UNIQ_IS_DEFAULT on TEST_CITY (IS_DEFAULT) ;

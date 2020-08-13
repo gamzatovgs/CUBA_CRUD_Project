@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.test.web.screens.owner">
+    <data>
+        <instance id="ownerDc"
+                  class="com.company.test.entity.Owner"
+                  view="_local">
+            <loader/>
+        </instance>
+        <collection id="carsDc" class="com.company.test.entity.Car" view="car-view">
+            <loader id="carsDl">
+                <query>
+                    <![CDATA[select e from test_Car e where e.owner = :owner]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="ownerDc">
+            <column width="250px">
+                <textField id="lastNameField" property="lastName"/>
+                <textField id="firstNameField" property="firstName"/>
+                <textField id="patronymicField" property="patronymic"/>
+                <lookupField id="genderField" property="gender"/>
+                <dateField id="birthdateField" property="birthdate"/>
+            </column>
+        </form>
+        <groupBox caption="msg://Cars" width="auto">
+            <table id="carsTable" dataContainer="carsDc" width="100%">
+                <actions>
+                    <action id="create" type="create"/>
+                    <action id="edit" type="edit"/>
+                    <action id="remove" type="remove"/>
+                </actions>
+                <columns>
+                    <column id="name"/>
+                    <column id="number"/>
+                    <column id="color"/>
+                    <column id="garage"/>
+                </columns>
+                <rowsCount/>
+                <buttonsPanel id="buttonsPanel"
+                              alwaysVisible="true">
+                    <button id="createBtn" action="carsTable.create"/>
+                    <button id="editBtn" action="carsTable.edit"/>
+                    <button id="removeBtn" action="carsTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

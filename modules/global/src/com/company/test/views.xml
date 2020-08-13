@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="test_Car" name="car-view" extends="_local">
+        <property name="owner" view="_minimal"/>
+        <property name="garage" view="_minimal"/>
+    </view>
+    <view entity="test_Garage" name="garage-view" extends="_local">
+        <property name="city" view="_minimal"/>
+        <property name="car" view="_minimal">
+            <property name="number"/>
+            <property name="color"/>
+            <property name="owner" view="_minimal"/>
+        </property>
+    </view>
+    <view entity="test_Owner" name="owner-view" extends="_local">
+        <property name="car" view="_minimal">
+            <property name="number"/>
+            <property name="color"/>
+            <property name="garage" view="_minimal"/>
+        </property>
+    </view>
+</views>
