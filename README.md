@@ -1,4 +1,4 @@
-# CUBA CRUD Project (with localization)
+# CUBA CRUD Project
 
 **[Руководство CUBA Platform](https://doc.cuba-platform.com/manual-7.2-ru/). После ознакомления выполнить тестовое задание.**
 
